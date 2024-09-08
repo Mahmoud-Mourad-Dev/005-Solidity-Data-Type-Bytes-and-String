@@ -26,6 +26,32 @@ contract stringExample {
    bytes5 public say = "hello";
 }
 ```
+In Solidity, string literals are limited to printable ASCII characters. This means they can only include characters with hexadecimal values ranging from 0x20 to 0x7E. These are the characters between space (0x20) and tilde (0x7E), which includes letters, digits, punctuation, and symbols.
+
+Here’s what the range includes:
+
+0x20: Space character
+0x21 to 0x7E: All printable ASCII characters, such as:
+Letters: A-Z, a-z
+Digits: 0-9
+Symbols: !, @, #, etc.
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+contract stringExample{
+    string public name = "mahmoud \n mourad"; // Newline
+    string public Name = "mahmoud \\ mourad";
+    string public nAme = "mahmoud \" mourad";
+    string public naMe = "mahmoud \r mourad"; // Carriage return
+    string public namE = "mahmoud \t mourad"; // Tab
+    string public example = "Hello\x20World"; // \x20 يمثل مسافة
+    string public Example = "Hello, \u2764!"; 
+    }
+```
+
+
+
+
 
 
 
