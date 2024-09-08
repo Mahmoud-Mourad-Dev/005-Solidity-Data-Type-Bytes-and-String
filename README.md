@@ -48,6 +48,36 @@ contract stringExample{
     string public Example = "Hello, \u2764!"; 
     }
 ```
+Until version 0.8.0 there were three additional escape sequences: \b, \f and \v. They are commonly available in other languages but rarely needed in practice. If you do need them, they can still be inserted via hexadecimal escapes, i.e. \x08, \x0c and \x0b, respectively, just as any other ASCII character.
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+contract stringExample{
+    string public name = "mahmoud\x08mourad";
+    string public Name = "mahmoud\x0cmourad";
+    string public nAme = "mahmoud\x0bmourad";    
+    }
+```
+Let's break down the string "\n\"\'\\abc\def" to determine how many bytes it occupies in memory.
+
+\n: Represents a single newline character. This is 1 byte.
+\": Represents a single double quote ("). This is 1 byte.
+\': Represents a single single quote ('). This is 1 byte.
+\\: Represents a single backslash (\). This is 1 byte.
+abc: These are regular ASCII characters. Each character (a, b, c) is 1 byte, so this is 3 bytes.
+\d: This is an invalid escape sequence (in most programming languages like Solidity or C), so it is treated as two separate characters: a backslash (\) and d. This is 2 bytes.
+ef: These are regular ASCII characters, each 1 byte, so this is 2 bytes.
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+contract stringExample{
+    string public name ="\n\"\'\\abc\
+def";
+       
+    }
+```
+
+
 
 
 
