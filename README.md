@@ -76,6 +76,15 @@ def";
        
     }
 ```
+The Unicode escape sequence is useful for inserting special characters, symbols, or characters from different languages into strings. Since Unicode supports a wide range of characters from almost all writing systems, it is widely used for internationalization and displaying special symbols.
+```solidity
+/ SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+contract stringExample {
+   bytes5 public say = "hello";
+}
+```
+
 
 
 
