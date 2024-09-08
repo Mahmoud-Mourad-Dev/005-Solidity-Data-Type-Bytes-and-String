@@ -85,6 +85,40 @@ contract stringExample {
 }
 ```
 
+Hexadecimal Literals
+Hexadecimal literals are prefixed with the keyword hex and are enclosed in double or single-quotes (hex"001122FF", hex'0011_22_FF'). 
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+contract stringExample{
+    string  public a = hex"0x1A01";   
+    }
+```
+we can optionally use a single underscore as separator between byte boundaries
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+contract stringExample{
+    bytes8  public a = hex'0011_22_FF';   
+    }
+```
+Multiple hexadecimal literals separated by whitespace are concatenated into a single literal: hex"00112233" hex"44556677" is equivalent to hex"0011223344556677"
+```solidity
+//SPDX-License-Identifier: MIT
+pragma solidity 0.8.24;
+contract stringExample{
+    bytes8  public a = hex'0011_22_FF' hex"0a";   
+    }
+```
+
+
+
+
+
+
+
+
+
 
 
 
